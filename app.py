@@ -13,7 +13,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.express as px
 
-fastf1.Cache.enable_cache("cache")
+import tempfile
+cache_dir = tempfile.mkdtemp()
+fastf1.Cache.enable_cache(cache_dir)
+
 
 st.title("2025 Las Vegas GP – F1 Data Dashboard")
 
