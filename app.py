@@ -27,14 +27,16 @@ session_type = "R"
 
 session = fastf1.get_session(year, gp, session_type)
 session.load()
+# UPDATED CODE
+# Step 1: Load the telemetry & lap data into memory
+session.load()
 
-st.sidebar.success("Session Loaded Successfully")
-
-# Select Driver
-drivers = sorted(session.laps['Driver'].unique())
-driver1 = st.sidebar.selectbox("Driver 1", drivers)
+st.sidebar.success("Session Loaded Successfully")                       
+                                                                        
+# Step 2: Extract driver list now that session data is loaded
+drivers = sorted(session.laps['Driver'].unique())                       
+driver1 = st.sidebar.selectbox("Driver 1", drivers)                     
 driver2 = st.sidebar.selectbox("Driver 2", drivers)
-
 laps = session.laps.copy()
 
 # ---------------------
